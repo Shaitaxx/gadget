@@ -1,24 +1,69 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| name               | string | null: false               |
+| email              | string | null: false, unique :true |
+| encrypted_password | string | null: false               |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :articles
+- has_many :favorites
+- has_many :comments
+- has_many :follows
 
-* Configuration
+## articles テーブル
 
-* Database creation
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| title        | string     | null: false                    |
+| text         | text       | null: false                    |
+| image        | string     | null: false                    |
+| price        | integer    | null: false                    |
+| category_id  | integer    | null: false                    |
 
-* Database initialization
+| user      | references | null: false, foreign_key: true |
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- belongs_to :user
+- has_many :favorites
+- has_many :comments
 
-* Deployment instructions
+## comments テーブル
 
-* ...
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| text     | text       | null: false                    |
+| user     | references | null: false, foreign_key: true |
+| article  | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :article
+- belongs_to :user
+
+## favorites テーブル
+
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| article  | references | null: false, foreign_key: true |
+| user     | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :article
+- belongs_to :user
+
+## follows テーブル
+
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| user     | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
