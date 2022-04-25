@@ -46,6 +46,8 @@ a:hover {
 /*headerブロック*/
 header {
 	text-align: center;	/*内容を中央よせ*/
+	font-size: 40px;
+	color: #b2b2b2;
 }
 /*ロゴ画像設定*/
 #logo img {
@@ -59,6 +61,7 @@ header {
 #mainimg img {
 	border-radius: 10px;	/*角を丸くする指定。この１行を削除すれば角丸がなくなります。*/
 	margin-bottom: 40px;	/*下に空けるスペース*/
+	width: 90%;
 }
 
 /*メニュー
