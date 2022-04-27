@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 2022_04_25_065543) do
     t.text "text", null: false
     t.string "image", null: false
     t.integer "price", null: false
-    t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
