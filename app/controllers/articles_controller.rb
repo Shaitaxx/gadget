@@ -9,13 +9,18 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    Article.create(article_params)
+    @article = Article.new(article_params)
+    if @article.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
-  privete
-  
+  private
+
   def article_params
-    params.repuire(:article).parmit(:title, :text, :image, :price).merge(user_id: current_user.id)
+    params.require(:article).permit(:title, :text, :image, :price).merge(user_id: current_user.id)
   end
 
 end
