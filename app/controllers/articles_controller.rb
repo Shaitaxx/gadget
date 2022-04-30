@@ -1,7 +1,6 @@
 class ArticlesController < ApplicationController
-
   def index
-    @articles = Article.all.order("created_at DESC")
+    @articles = Article.all.order('created_at DESC')
   end
 
   def new
@@ -22,5 +21,4 @@ class ArticlesController < ApplicationController
   def article_params
     params.require(:article).permit(:title, :text, :image, :price)
   end
-
 end
