@@ -33,8 +33,11 @@ RSpec.describe Article, type: :model do
         @article.valid?
         expect(@article.errors.full_messages).to include("Price can't be blank")
       end
-      # it 'userが存在しなければ投稿できないこと' do
-      # end
+      it 'userが存在しなければ登録できないこと' do
+        @article.user = nil
+        @article.valid?
+        expect(@article.errors.full_messages).to include('User must exist')
+      end
     end
   end
 end
