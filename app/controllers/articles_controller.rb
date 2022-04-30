@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  before_action :move_to_index, except: [:index, :show]
+
   def index
     @articles = Article.all.order('created_at DESC')
   end
@@ -19,6 +21,12 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :text, :image, :price)
+    params.require(:article).permit(:title, :text, :image, :price).merge(user_id: current_user.id)
+  end
+
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :index
+    end
   end
 end
