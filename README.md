@@ -22,7 +22,7 @@
 | title        | string     | null: false                    |
 | text         | text       | null: false                    |
 | image        | string     | null: false                    |
-| price        | integer    | null: false                    |
+| price        | string     | null: false                    |
 | category_id  | integer    | null: false                    |
 
 | user         | references | null: false, foreign_key: true |

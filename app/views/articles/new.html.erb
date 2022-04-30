@@ -1,0 +1,55 @@
+<div class="items-sell-contents">
+  <div class="items-sell-main">
+    <h2 class="items-sell-title">新規投稿内容を入力</h2>
+    <%= form_with model: @article, url: articles_path, local: true do |f| %>
+
+      <%# render 'shared/error_messages', model: @aarticle %>
+
+      <%# 商品画像 %>
+      <div class="img-upload">
+        <div class="weight-bold-text">
+          画像
+        </div>
+        <div class="click-upload">
+          <p>
+            クリックしてファイルをアップロード
+          </p>
+          <%= f.file_field :image, id:"item-image" %>
+        </div>
+      </div>
+      <div class="price">
+        <div class="weight-bold-text">
+          費用
+        </div>
+          <%= f.text_area :price, class:"items-text", id:"item-name", placeholder:"掛かった費用等を入力してください（例 PC本体:約15万円,マウス:1万円...）", maxlength:"40" %>
+      </div>
+      <%# /商品画像 %>
+      <%# 商品名と商品説明 %>
+      <div class="new-items">
+        <div class="weight-bold-text">
+          タイトル
+        </div>
+        <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"タイトルを入力してください（例 macでのパソコン環境等）", maxlength:"40" %>
+        <div class="items-explain">
+          <div class="weight-bold-text">
+            コメント
+          </div>
+          <%= f.text_area :text, class:"items-text", id:"item-info", placeholder:"コメントを入力してください（例 pcのスペック・モニターの仕様・マウス等ガジェットの仕様・こだわりポイント等）" ,rows:"7" ,maxlength:"1000" %>
+        </div>
+      </div>
+      <%# /商品名と商品説明 %>
+
+      <%# 下部ボタン %>
+      <div class="sell-btn-contents">
+        <%= f.submit "投稿する" ,class:"sell-btn" %>
+        <%=link_to 'もどる', root_path, class:"back-btn" %>
+      </div>
+      <%# /下部ボタン %>
+    <% end %>
+  </div>
+</div>
+
+<footer>
+  <small>Copyright&copy; <a href="index.html">SAMPLE SITE</a> All Rights Reserved.</small>
+  <span class="pr">《<a href="https://template-party.com/" target="_blank">Web Design:Template-Party</a>》</span>
+</footer>
