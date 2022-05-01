@@ -4,7 +4,7 @@ FactoryBot.define do
     text { '説明' }
     price { '10万円' }
 
-    # association :user
+    association :user
 
     after(:build) do |article|
       article.image.attach(io: File.open('public/images/test_image.png'), filename: 'test_image.png')
