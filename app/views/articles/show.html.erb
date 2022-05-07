@@ -1,66 +1,48 @@
-<%= render "shared/header" %>
+<%= render "shared/second-header" %>
 
 <%# 商品の概要 %>
 <div class="item-show">
   <div class="item-box">
     <h2 class="name">
-      <%= @good.name %>
+      <%= @article.title %>
     </h2>
     <div class="item-img-content">
-      <%= image_tag @good.image ,class:"item-box-img" %>
-      <% if @good.purchase.present? %>
-        <div class="sold-out">
-          <span>Sold Out!!</span>
-        </div>
-      <% end %>
+      <%= image_tag @article.image ,class:"item-box-img" %>
     </div>
     <div class="item-price-box">
       <span class="item-price">
-        ¥ <%= @good.price %>
-      </span>
-      <span class="item-postage">
-        <%= @good.charge.name %>
+        ¥ <%= @article.price %>
       </span>
     </div>
 
-    <% if user_signed_in? && @good.purchase.nil? %>
-      <% if current_user.id == @good.user.id %>
-        <%= link_to "商品の編集", edit_good_path(@good), method: :get, class: "item-red-btn" %>
+    <% if user_signed_in? %>
+      <% if current_user.id == @article.user.id %>
+        <%= link_to "商品の編集", root_path(@article), method: :get, class: "item-red-btn" %>
         <p class="or-text">or</p>
-        <%= link_to "削除", good_path(@good), method: :delete, class:"item-destroy" %>
-      <% else %>
-        <%= link_to "購入画面に進む", good_orders_path(@good) ,class:"item-red-btn"%>
+        <%= link_to "削除", root_path(@article), method: :delete, class:"item-destroy" %>
       <% end %>
     <% end %>
 
     <div class="item-explain-box">
-      <span><%= @good.explanation %></span>
+      <span><%= @article.title %></span>
     </div>
     <table class="detail-table">
       <tbody>
         <tr>
           <th class="detail-item">出品者</th>
-          <td class="detail-value"><%= @good.user.name %></td>
+          <td class="detail-value"><%= @article.user.nickname %></td>
         </tr>
         <tr>
-          <th class="detail-item">カテゴリー</th>
-          <td class="detail-value"><%= @good.category.name %></td>
+          <th class="detail-item">タイトル</th>
+          <td class="detail-value"><%= @article.title %></td>
         </tr>
         <tr>
-          <th class="detail-item">商品の状態</th>
-          <td class="detail-value"><%= @good.status.name %></td>
+          <th class="detail-item">コメント</th>
+          <td class="detail-value"><%= @article.text %></td>
         </tr>
         <tr>
-          <th class="detail-item">配送料の負担</th>
-          <td class="detail-value"><%= @good.charge.name %></td>
-        </tr>
-        <tr>
-          <th class="detail-item">発送元の地域</th>
-          <td class="detail-value"><%= @good.region.name %></td>
-        </tr>
-        <tr>
-          <th class="detail-item">発送日の目安</th>
-          <td class="detail-value"><%= @good.shipping_date.name %></td>
+          <th class="detail-item">費用</th>
+          <td class="detail-value"><%= @article.price %></td>
         </tr>
       </tbody>
     </table>
@@ -99,7 +81,6 @@
       後ろの商品 ＞
     </a>
   </div>
-  <a href="#" class="another-item"><%= @good.category.name %>をもっと見る</a>
 </div>
 
 <%= render "shared/footer" %>

@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :move_to_find, except: [:index, :new, :create]
   before_action :move_to_index, except: [:index, :show]
 
   def index
@@ -18,10 +19,17 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def show
+  end
+
   private
 
   def article_params
     params.require(:article).permit(:title, :text, :image, :price).merge(user_id: current_user.id)
+  end
+
+  def move_to_find
+    @article = Article.find(params[:id])
   end
 
   def move_to_index
