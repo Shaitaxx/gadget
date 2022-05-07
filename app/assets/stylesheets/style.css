@@ -145,20 +145,6 @@ header {
 	padding: 0 !important;
 }
 
-/*フッター(ページ最下部のcopyrightのパーツ)設定
----------------------------------------------------------------------------*/
-footer {
-	clear: both;
-	text-align: center;	/*文字をセンタリング*/
-	padding: 30px 0px 10px;	/*上、左右、下へのボックス内の余白*/
-}
-footer a {
-	text-decoration: none;
-	border: none;
-}
-footer .pr {
-	display: block;
-}
 
 /*トップページ内「更新情報・お知らせ」ブロック
 ---------------------------------------------------------------------------*/

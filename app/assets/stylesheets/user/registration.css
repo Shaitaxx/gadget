@@ -99,17 +99,3 @@
   cursor: pointer;
   margin: 5vh 0 0 0;
 }
-
-footer {
-	clear: both;
-	text-align: center;
-	padding: 30px 0px 10px;
-  background-color: rgb(230, 248, 246);
-}
-footer a {
-	text-decoration: none;
-	border: none;
-}
-footer .pr {
-	display: block;
-}
