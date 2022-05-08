@@ -19,12 +19,12 @@
       <h2>GALLERY</h2>
       <% @articles.each do |article| %>
         <div class="list">
-          <%# link_to good_path(good.id), method: :get do %>
+          <%= link_to article_path(article.id), method: :get do %>
             <%= image_tag article.image %>
             <h4><%= article.title %></h4>
             <p>掛かった金額：<%= article.price %></p>
             <p><%= article.text %></p>
-          <%# end %>
+          <% end %>
         </div>
       <% end %>
     </section>

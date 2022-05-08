@@ -1,0 +1,20 @@
+/* フッター */
+footer {
+	clear: both;
+	text-align: center;	/*文字をセンタリング*/
+	padding: 30px 0px 10px;	/*上、左右、下へのボックス内の余白*/
+  background-color: white;
+}
+footer a {
+	text-decoration: none;
+	border: none;
+}
+footer .pr {
+	display: block;
+}
+
+#second {
+	background-color: rgb(230, 248, 246);
+}
+
+/* /フッター */

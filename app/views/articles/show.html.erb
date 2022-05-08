@@ -1,0 +1,66 @@
+<%= render "shared/second-header" %>
+
+<%# 商品の概要 %>
+<div class="item-show">
+  <div class="item-box">
+    <div class="item-img-content">
+      <%= image_tag @article.image ,class:"item-box-img" %>
+    </div>
+
+    <% if user_signed_in? %>
+      <% if current_user.id == @article.user.id %>
+        <%= link_to "記事の編集", root_path(@article), method: :get, class: "item-red-btn" %>
+        <p class="or-text">or</p>
+        <%= link_to "削除", root_path(@article), method: :delete, class:"item-destroy" %>
+      <% end %>
+    <% end %>
+
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">出品者</th>
+          <td class="detail-value"><%= @article.user.nickname %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">タイトル</th>
+          <td class="detail-value"><%= @article.title %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">費用</th>
+          <td class="detail-value"><%= @article.price %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">コメント</th>
+          <td class="detail-value"><%= @article.text %></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="option">
+      <div class="favorite-btn">
+        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+        <span>お気に入り 0</span>
+      </div>
+      <div class="report-btn">
+        <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
+        <span>不適切な記事の通報</span>
+      </div>
+    </div>
+  </div>
+  <%# /商品の概要 %>
+
+  <div class="comment-box">
+    <form>
+      <textarea class="comment-text"></textarea>
+      <p class="comment-warn">
+        相手のことを考え丁寧なコメントを心がけましょう。
+        <br>
+        不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      </p>
+      <button type="submit" class="comment-btn">
+        <span>コメントする<span>
+      </button>
+    </form>
+  </div>
+</div>
+
+<%= render "shared/second-footer" %>
