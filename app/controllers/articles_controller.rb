@@ -22,6 +22,10 @@ class ArticlesController < ApplicationController
   def show
   end
 
+  def edit
+    redirect_to root_path unless current_user == @article.user
+  end
+
   private
 
   def article_params
