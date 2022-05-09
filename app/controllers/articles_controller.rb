@@ -22,6 +22,18 @@ class ArticlesController < ApplicationController
   def show
   end
 
+  def edit
+    redirect_to root_path unless current_user == @article.user
+  end
+
+  def update
+    if @article.update(article_params)
+      redirect_to article_path
+    else
+      render :edit
+    end
+  end
+
   private
 
   def article_params
