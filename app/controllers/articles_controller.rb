@@ -34,6 +34,13 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def destroy
+    if current_user == @article.user
+      @article.destroy
+      redirect_to root_path
+    end
+  end
+
   private
 
   def article_params
