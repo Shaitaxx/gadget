@@ -1,6 +1,7 @@
 class CommentChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "comment_channel"
+    @article = Article.find(params[:article_id])
+    stream_for @article
   end
 
   def unsubscribed
