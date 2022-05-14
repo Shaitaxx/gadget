@@ -2,7 +2,11 @@ import consumer from "./consumer"
 
 if(location.pathname.match(/\/articles\/\d/)){
 
-  consumer.subscriptions.create("CommentChannel", {
+  consumer.subscriptions.create({
+    channel: "CommentChannel",
+    article_id: location.pathname.match(/\d+/)[0]
+  }, {
+
     connected() {
       // Called when the subscription is ready for use on the server
     },
@@ -19,7 +23,7 @@ if(location.pathname.match(/\/articles\/\d/)){
         </div>`
       const comments = document.getElementById("comments")
       comments.insertAdjacentHTML('beforeend', html)
-      const commentForm = document.getElementById("comment-form")
+      const commentForm = document.getElementById("comment-box")
       commentForm.reset();
     }
   })
