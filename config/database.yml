@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: gadget_production
-  username: gadget
-  password: <%= ENV['GADGET_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
