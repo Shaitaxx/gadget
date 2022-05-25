@@ -2,6 +2,11 @@
   <h1 class="logo"><%= image_tag 'title_9.png' %></h1>
   <aside id="mainimg">
     <%= image_tag 'title_5.jpg' %>
-    <p>自分のPC環境やガジェットを投稿しよう</p>
+      <% if user_signed_in? %>
+        <%= link_to "自分のPC環境やガジェットを投稿しよう", new_article_path, id: "titlebtn" %>
+      <% else %>
+        <%= link_to "自分のPC環境やガジェットを投稿しよう", new_user_registration_path, id: "titlebtn" %>
+      <% end %>
+    <%# <p>自分のPC環境やガジェットを投稿しよう</p> %>
   </aside>
 </header>
