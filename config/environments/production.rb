@@ -113,4 +113,9 @@ Rails.application.configure do
   ActionCable.server.config.disable_request_forgery_protection = true
   config.action_cable.url = "wss://calm-lowlands-78520.herokuapp.com/cable" 
   config.action_cable.allowed_request_origins = ['https://calm-lowlands-78520.herokuapp.com', 'http://calm-lowlands-78520.herokuapp.com']
+
+  ActionCable.server.config.disable_request_forgery_protection = true
+  config.action_cable.url = "ws://【Elastic IP】/cable" 
+  config.action_cable.allowed_request_origins = ['http://35.78.49.125']
+
 end
