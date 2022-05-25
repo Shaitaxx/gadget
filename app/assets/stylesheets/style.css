@@ -61,8 +61,9 @@ header {
 /*画像ブロック*/
 #mainimg img {
 	border-radius: 10px;	/*角を丸くする指定。この１行を削除すれば角丸がなくなります。*/
-	margin-bottom: 40px;	/*下に空けるスペース*/
+	margin-bottom: 30px;	/*下に空けるスペース*/
 	width: 90%;
+	height: 80vh;
 }
 
 /*メニュー
