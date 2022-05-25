@@ -59,8 +59,28 @@ header {
 /*トップページのメイン画像
 ---------------------------------------------------------------------------*/
 /*画像ブロック*/
+#mainimg {
+	position: relative;
+}
+
+#mainimg p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  /*以下装飾*/
+  margin:0;
+  font-size: 40px;
+  border: solid #FF6600 2px;
+  padding: 7px;
+  color: #FF6600;
+  text-decoration: none;
+  }
+
 #mainimg img {
-	border-radius: 10px;	/*角を丸くする指定。この１行を削除すれば角丸がなくなります。*/
+	border-radius: 10px;	
 	margin-bottom: 30px;	/*下に空けるスペース*/
 	width: 90%;
 	height: 80vh;
