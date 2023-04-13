@@ -9,6 +9,7 @@ Gadget Expedition
 # URL
 
 http://35.78.49.125/
+※AWS有料化に伴い停止中
 
 # テスト用アカウント
 
